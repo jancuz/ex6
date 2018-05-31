@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MyLibrary;
 
 namespace ex6
 {
@@ -30,6 +31,25 @@ namespace ex6
 
         static void Main(string[] args)
         {
+            double a1 = AskData.ReadDoubleNumber("Введите первое чсило последовательности: ", double.MinValue, double.MaxValue);
+            double a2 = AskData.ReadDoubleNumber("Введите второе число последовательности: ", double.MinValue, double.MaxValue);
+            double a3 = AskData.ReadDoubleNumber("Введите третье число последовательности: ", double.MinValue, double.MaxValue);
+            int n = AskData.ReadIntNumber("Введите границу последовательности: ", int.MinValue, int.MaxValue);
+
+            double[] arr = new double[n];   // массив элементов последовательноти
+            // первые три элемента заданной последовательности
+            arr[0] = a1;
+            arr[1] = a2;
+            arr[2] = a3;
+
+            Console.Write("Последовательность: {0} {1} {2} ", a1, a2, a3);
+            int tecN = 3;
+            NextElement(n, tecN, ref arr);  // получение элементов последовательности
+            Console.WriteLine();
+            if (!IsGrowing(n, arr))  // определение, являются ли элементы, стоящие на четных местах, возрастающей последвательностью 
+                Console.WriteLine("Элементы, стоящие на четных местах, не образуют возрастающую подпоследовательность");
+            else
+                Console.WriteLine("Элементы, стоящие на четных местах, образуют возрастающую подпоследовательность");
         }
     }
 }
