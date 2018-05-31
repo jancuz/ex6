@@ -8,7 +8,7 @@ namespace ex6
 {
     class Program
     {
-        static void NextElement(int n, int tecN, ref double[] arr)
+        static void NextElement(int n, int tecN, ref double[] arr)  // подсчет следующего элемента последовательности
         {
             if (tecN < n)
             {
@@ -18,6 +18,14 @@ namespace ex6
                 Console.Write(temp + " ");
                 NextElement(n, tecN, ref arr);
             }
+        }
+
+        static bool IsGrowing(int n, double[] arr)  // определение возрастающей последовательности
+        {
+            for (int i = 1; i < n - 2; i += 2)
+                if (arr[i] > arr[i + 2])
+                    return false;
+            return true;
         }
 
         static void Main(string[] args)
