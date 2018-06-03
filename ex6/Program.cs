@@ -11,7 +11,7 @@ namespace ex6
     {
         static void NextElement(int n, int tempN, ref double[] arr)  // подсчет следующего элемента последовательности
         {
-            double temp = 13 * arr[tempN - 1] - 10 * arr[tempN - 2] + arr[tempN - 3]; // следующтй элемент последовательности
+            double temp = 13 * arr[tempN - 1] - 10 * arr[tempN - 2] + arr[tempN - 3]; // следующий элемент последовательности
             if (tempN < n && !Double.IsInfinity(temp))  // проверка на кол-во элементов и переполнение
             {
                 arr[tempN] = temp;
@@ -22,24 +22,24 @@ namespace ex6
             else
             {
                 if (double.IsInfinity(temp))
-                    Console.WriteLine("Довести последовательность невозможно");
+                    Console.WriteLine("\nДовести последовательность невозможно");
             }
         }
 
         static bool IsGrowing(int n, double[] arr)  // определение возрастающей последовательности
         {
             for (int i = 1; i < n - 2; i += 2)
-                if (arr[i] > arr[i + 2])
+                if (arr[i] >= arr[i + 2])
                     return false;
             return true;
         }
 
         static void Main(string[] args)
         {
-            double a1 = AskData.ReadDoubleNumber("Введите первое чсило последовательности: ", double.MinValue, double.MaxValue);
+            double a1 = AskData.ReadDoubleNumber("Введите первое чиcло последовательности: ", double.MinValue, double.MaxValue);
             double a2 = AskData.ReadDoubleNumber("Введите второе число последовательности: ", double.MinValue, double.MaxValue);
             double a3 = AskData.ReadDoubleNumber("Введите третье число последовательности: ", double.MinValue, double.MaxValue);
-            int n = AskData.ReadIntNumber("Введите границу последовательности: ", int.MinValue, int.MaxValue);
+            int n = AskData.ReadIntNumber("Введите границу последовательности: ", 4, int.MaxValue);
 
             double[] arr = new double[n];   // массив элементов последовательноти
             // первые три элемента заданной последовательности
