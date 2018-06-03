@@ -9,15 +9,20 @@ namespace ex6
 {
     class Program
     {
-        static void NextElement(int n, int tecN, ref double[] arr)  // подсчет следующего элемента последовательности
+        static void NextElement(int n, int tempN, ref double[] arr)  // подсчет следующего элемента последовательности
         {
-            if (tecN < n)
+            double temp = 13 * arr[tempN - 1] - 10 * arr[tempN - 2] + arr[tempN - 3]; // следующтй элемент последовательности
+            if (tempN < n && !Double.IsInfinity(temp))  // проверка на кол-во элементов и переполнение
             {
-                double temp = 13 * arr[tecN - 1] - 10 * arr[tecN - 2] + arr[tecN - 3];
-                arr[tecN] = temp;
-                tecN++;
-                Console.Write(temp + " ");
-                NextElement(n, tecN, ref arr);
+                arr[tempN] = temp;
+                tempN++;
+                Console.Write(temp + " ");  // вывод полученного элемента
+                NextElement(n, tempN, ref arr);
+            }
+            else
+            {
+                if (double.IsInfinity(temp))
+                    Console.WriteLine("Довести последовательность невозможно");
             }
         }
 
