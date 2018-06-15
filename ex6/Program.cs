@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MyLibrary;
 
 namespace ex6
@@ -55,6 +51,9 @@ namespace ex6
                 Console.WriteLine("Элементы, стоящие на четных местах, не образуют возрастающую подпоследовательность");
             else
                 Console.WriteLine("Элементы, стоящие на четных местах, образуют возрастающую подпоследовательность");
+
+            Console.WriteLine("Нажмите Enter для завершения работы программы...");
+            Console.ReadLine();
         }
     }
 }
